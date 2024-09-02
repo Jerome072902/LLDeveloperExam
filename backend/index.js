@@ -204,3 +204,52 @@ app.post("/minofmeet", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//Update Meeting
+app.put("/minofmeet/:id", async (req, res) => {
+  const minOfMeetId = req.params.id;
+
+  const query = `
+    UPDATE minofmeet
+    SET
+      title = @title,
+      venue = @venue,
+      date = @date,
+      startTime = @startTime,
+      endTime = @endTime,
+      duration = @duration,
+      attendees = @attendees,
+      chairedBy = @chairedBy,
+      presents = @presents,
+      absents = @absents,
+      highlights = @highlights
+    WHERE id = @id
+  `;
+
+  try {
+    const pool = await sql.connect();
+
+    await pool
+      .request()
+      .input("title", sql.VarChar, req.body.title)
+      .input("venue", sql.VarChar, req.body.venue)
+      .input("date", sql.VarChar, req.body.date)
+      .input("startTime", sql.VarChar, req.body.startTime)
+      .input("endTime", sql.VarChar, req.body.endTime)
+      .input("duration", sql.VarChar, req.body.duration)
+      .input("attendees", sql.NVarChar, JSON.stringify(req.body.attendees))
+      .input("chairedBy", sql.VarChar, req.body.chairedBy)
+      .input("presents", sql.NVarChar, JSON.stringify(req.body.presents))
+      .input("absents", sql.NVarChar, JSON.stringify(req.body.absents))
+      .input("highlights", sql.NVarChar, JSON.stringify(req.body.highlights))
+      .input("id", sql.Int, minOfMeetId)
+      .query(query);
+
+    res.json("Meeting has been updated successfully");
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while updating the meeting." });
+  }
+});
