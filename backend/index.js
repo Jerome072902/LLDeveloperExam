@@ -113,6 +113,47 @@ app.post("/register", async (req, res) => {
 
 //Minutes of Meeting Logic
 
+//Fetch all Meeting
+app.get("/minofmeet", async (req, res) => {
+  try {
+    const pool = await sql.connect();
+
+    const query = "SELECT * FROM minofmeet";
+
+    const result = await pool.request().query(query);
+
+    return res.json(result.recordset);
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ error: "An error occurred while fetching data." });
+  }
+});
+
+//Fetch Meeting by ID
+app.get("/minofmeet/:id", async (req, res) => {
+  const minOfMeetId = req.params.id;
+
+  try {
+    const pool = await sql.connect();
+
+    const query = "SELECT * FROM minofmeet WHERE id = @minOfMeetId";
+
+    const result = await pool
+      .request()
+      .input("minOfMeetId", sql.Int, minOfMeetId)
+      .query(query);
+
+    return res.json(result.recordset);
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ error: "An error occurred while fetching data." });
+  }
+});
+
 //Add Meeting
 app.post("/minofmeet", async (req, res) => {
   const {
