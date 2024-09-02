@@ -1,10 +1,13 @@
 import "./App.css";
 import React from "react";
+import AppLayout from "./Components/appLayout/AppLayout";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, Vite with React!</h1>
+    <div>
+      <main>
+        <AppLayout />
+      </main>
     </div>
   );
 }

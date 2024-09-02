@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.register-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f0f2f5;
+  background-position: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.reg-form {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 8px;
+}
+
+.reg-form h1 {
+  margin-bottom: 20px;
+}
+.reg-form .em {
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  width: 275px;
+}
+
+.reg-form .pw {
+  margin-top: 10px;
+
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  width: 275px;
+}
+
+.reg-form button {
+  height: 35px;
+  width: 100%;
+  background-color: #f38249;
+  color: #ffffff;
+  border-radius: 3px;
+  border: none;
+}
+
+.reg-form button.clicked {
+  background-color: #424242;
+}
+
+.reg-form .error-message {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 8px;
+  clear: both;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: pink;
+  opacity: 70%;
+  color: red;
+}
+.error-message button.close-button {
+  color: red;
+  background-color: transparent;
+}
+.reg-form .error-message p {
+  margin-right: 0px;
+}
+
+.reg-form .close-button {
+  height: 25px;
+  width: 30px;
+  background-color: gray;
+}
+
+.reg-form .close-button-container {
+  flex-shrink: 0;
+}
+
+.ant-form-item .ant-form-item-explain-error {
+  font-size: 12px;
+}

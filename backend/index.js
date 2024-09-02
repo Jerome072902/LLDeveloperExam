@@ -13,7 +13,13 @@ saltRounds = 10;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 
@@ -46,6 +52,14 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
 app.post("/login", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -62,7 +76,6 @@ app.post("/login", async (req, res) => {
       bcrypt.compare(password, user.password, (error, response) => {
         if (response) {
           req.session.user = user;
-          console.log(req.session.user);
           res.send(user);
         } else {
           res.send({ message: "Wrong username/password combination" });

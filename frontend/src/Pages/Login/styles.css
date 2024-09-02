@@ -1,0 +1,222 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.welcome-text {
+  transition: 3s;
+  line-height: 1;
+  transform: translateY(18px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.left-section .welcome-text {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.trans {
+  transition: 4s;
+  line-height: 1;
+  transform: translateY(18px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.left-section .trans {
+  opacity: 0;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+}
+
+.login-form .em {
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 275px;
+  padding: 10px;
+}
+
+.login-form .pw {
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 275px;
+}
+
+.login-form button {
+  height: 35px;
+  width: 100%;
+  background-color: #f56a24;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+}
+
+.login-form button.clicked {
+  background-color: #424242;
+}
+
+.login-form .error-message {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  clear: both;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: pink;
+  opacity: 70%;
+  color: red;
+}
+
+.error-message button.close-button {
+  color: red;
+  background-color: transparent;
+}
+
+.login-form .error-message p {
+  margin-right: 0px;
+}
+
+.login-form .close-button {
+  height: 25px;
+  width: 30px;
+  background-color: grey;
+}
+
+.login-form .close-button-container {
+  flex-shrink: 0;
+}
+
+.left-section {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-size: auto 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(113, 112, 112, 0.534);
+  z-index: 2;
+  backdrop-filter: blur(3px);
+}
+
+.right-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: #fff;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff8008;
+  background: -webkit-linear-gradient(to bottom, #ffc837, #ff8008);
+  background: linear-gradient(to bottom, #ffc837, #ff8008);
+  clip-path: circle(285px at left 800px);
+}
+
+.smallcircle-container {
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  width: 100%;
+  height: 100%;
+  background: #ff8008;
+  background: -webkit-linear-gradient(to bottom, #ffc837, #ff8008);
+  background: linear-gradient(to bottom, #ffc837, #ff8008);
+  clip-path: circle(40px);
+}
+
+.centered-svg {
+  position: relative;
+  top: 70%;
+  left: 10%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 100%;
+  height: auto;
+  fill: pink;
+  stroke: blue;
+}
+
+.centered-svg text {
+  font-size: 16px;
+  fill: blue;
+}
+
+.move-animation {
+  animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.asd {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 768px) {
+  .left-section {
+    display: none;
+  }
+  .right-section {
+    width: 100%;
+  }
+}
