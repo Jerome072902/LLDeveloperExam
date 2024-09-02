@@ -1,0 +1,26 @@
+@page {
+	margin: 0cm;
+}
+
+.main {
+	counter-reset: page;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.pageNumber:after {
+	content: counter(page);
+}
+
+@media print {
+	.pageNumber {
+		counter-increment: page;
+
+		page-break-before: always;
+	}
+}

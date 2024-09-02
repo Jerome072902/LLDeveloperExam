@@ -1,0 +1,9 @@
+.custom-datepicker .ant-picker-input input::placeholder,
+.custom-timepicker .ant-picker-input input::placeholder {
+  color: black !important;
+}
+
+.side-by-side {
+  display: inline-block;
+  vertical-align: top;
+}

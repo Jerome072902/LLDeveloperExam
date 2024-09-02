@@ -36,8 +36,8 @@ import {
   faFileArrowDown,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
-// import EditMeet from "./EditMeet";
-// import Meeting_Details_Print from "./Meeting_Details_Print";
+import EditMeet from "./EditMeet";
+import Meeting_Details_Print from "./Meeting_Details_Print";
 import axios from "axios";
 
 const ViewMeet = () => {
@@ -837,7 +837,7 @@ const ViewMeet = () => {
           {/*  */}
           <div className="hidden print:block" ref={printRef}>
             {/* Print Template component for printing */}
-            {/* <Meeting_Details_Print meetingData={meetingData} /> */}
+            <Meeting_Details_Print meetingData={meetingData} />
           </div>
         </div>
       )}

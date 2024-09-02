@@ -46,7 +46,7 @@ import { Typography } from "@mui/material";
 import FilesNone from "../../Components/Pictures/FilesNone.png";
 import { faPrint, faEye } from "@fortawesome/free-solid-svg-icons";
 import "./Minutes.css";
-// import MeetingReports from "./MeetingReports";
+import MeetingReports from "./MeetingReports";
 import axios from "axios";
 
 const columns = [
@@ -798,7 +798,7 @@ const MinOfMeeting = ({ darkMode }) => {
                 </div>
               </div>
               <div className="hidden print:block  bg-white" ref={componentRef}>
-                {/* <MeetingReports data={paginatedData} ref={componentRef} /> */}
+                <MeetingReports data={paginatedData} ref={componentRef} />
               </div>
             </div>
           </div>

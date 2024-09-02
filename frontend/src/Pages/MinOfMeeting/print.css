@@ -1,0 +1,65 @@
+#header {
+}
+
+@media print {
+  .details-container {
+    page-break-after: always;
+  }
+
+  #header {
+    top: 0 !important;
+    padding: 6px;
+    align-self: center;
+    position: absolute;
+  }
+
+  .print-holder {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: space-between;
+  }
+
+  @page {
+    margin: 1.2cm;
+  }
+
+  .print-holder:first-of-type {
+    counter-reset: page 1;
+  }
+
+  .print-footer {
+    text-align: left;
+    position: fixed;
+    left: 30px;
+    width: 100%;
+    bottom: -4px;
+  }
+
+  .print-holder::before {
+    content: counter(page);
+    counter-increment: page;
+    display: none;
+  }
+
+  .print-footer::after {
+    content: "Page " counter(page);
+    text-align: right;
+    position: fixed;
+    right: 30px;
+    bottom: -2px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .print-holder:last-of-type .print-footer {
+    display: block;
+  }
+
+  @page :first {
+    counter-reset: total-pages 0;
+  }
+}
