@@ -197,7 +197,6 @@ app.post("/minofmeet", async (req, res) => {
       .input("highlights", sql.NVarChar, JSON.stringify(highlights))
       .query(query);
 
-    console.log("Meeting has been created successfully");
     res.json("Meeting has been created successfully");
   } catch (err) {
     console.log(err);

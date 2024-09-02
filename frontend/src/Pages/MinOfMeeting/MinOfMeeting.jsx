@@ -20,7 +20,6 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 import CloseIcon from "@mui/icons-material/Close";
 import AddMeet from "./AddMeet";
-// import EditMeet from "./EditMeet";
 
 import {
   startOfDay,
@@ -44,10 +43,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Typography } from "@mui/material";
 import FilesNone from "../../Components/Pictures/FilesNone.png";
-import { faPrint, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faPrint, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./Minutes.css";
 import MeetingReports from "./MeetingReports";
 import axios from "axios";
+import { Popconfirm, message } from "antd";
 
 const columns = [
   { id: "title", label: "Title", hideOnMobile: false },
@@ -115,6 +115,15 @@ const MinOfMeeting = ({ darkMode }) => {
         ...prevState,
         [key]: !prevState[key],
       }));
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3333/minofmeet/${id}`);
+      message.success(`Meeting deleted successfully.`);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -753,6 +762,37 @@ const MinOfMeeting = ({ darkMode }) => {
                                                       </IconButton>
                                                     </RouterLink>
                                                   </Tooltip>
+                                                  <Popconfirm
+                                                    title="Are you sure you want to delete this meeting?"
+                                                    onConfirm={() =>
+                                                      handleDelete(
+                                                        meetingData.id
+                                                      )
+                                                    }
+                                                    onCancel={cancel}
+                                                    okText="Yes"
+                                                    cancelText="No"
+                                                  >
+                                                    <Tooltip title="Delete">
+                                                      <IconButton
+                                                        edge="end"
+                                                        className={`dark:text-slate-400 ${
+                                                          screenWidth < 768
+                                                            ? "MuiIconButton-sizeSmall"
+                                                            : ""
+                                                        }`}
+                                                        aria-label="View"
+                                                        style={{
+                                                          outline: "none",
+                                                        }}
+                                                      >
+                                                        <FontAwesomeIcon
+                                                          icon={faTrash}
+                                                          className="text-red-500 text-base"
+                                                        />
+                                                      </IconButton>
+                                                    </Tooltip>
+                                                  </Popconfirm>
                                                 </div>
                                               </>
                                             ) : (
@@ -802,15 +842,6 @@ const MinOfMeeting = ({ darkMode }) => {
               </div>
             </div>
           </div>
-          {/* EditMeet modal */}
-          {selectedMeeting && (
-            <EditMeet
-              isOpen={isEditModalOpen}
-              onClose={() => setIsEditModalOpen(false)}
-              onSave={handleMeetingEdit}
-              initialData={selectedMeeting}
-            />
-          )}
         </div>
       </LocalizationProvider>
     </>
