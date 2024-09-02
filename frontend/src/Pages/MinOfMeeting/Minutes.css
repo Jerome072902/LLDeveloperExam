@@ -1,0 +1,139 @@
+.custom-time-picker
+  .ant-picker-dropdown
+  .ant-picker-footer
+  .ant-btn-primary:hover {
+  background: transparent;
+  color: #333;
+  border-color: #d9d9d9;
+}
+
+.ant-btn-primary {
+  background-color: #ffffff;
+  border-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  color: #0958d9;
+  background-color: transparent;
+  border-color: #0958d9;
+}
+.headr {
+  display: flex;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: white;
+  padding: 8px;
+  width: 300px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #555;
+}
+
+.MuiTablePagination-selectLabel {
+  font-size: 12px !important;
+}
+.MuiTablePagination-displayedRows {
+  font-size: 12px !important;
+}
+@media (max-width: 768px) {
+  .hide-on-small-screen {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .table-con {
+    margin-inline: 1.2rem;
+  }
+
+  .MuiTablePagination-displayedRows {
+    font-size: 12px !important;
+  }
+  .MuiTablePagination-selectLabel {
+    font-size: 12px !important;
+  }
+  .text {
+    font-size: 12px;
+  }
+
+  .MuiTableCell-root {
+    font-size: 13px !important;
+  }
+  .css-1ex1afd-MuiTableCell-root {
+    padding: 4px;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .minutes_container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .table-scroll {
+    width: 370px;
+    overflow: auto;
+    display: flex !important;
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .table-scroll {
+    max-width: 340px;
+    overflow: auto;
+    display: flex !important;
+    border-radius: 6px;
+  }
+  .search-box {
+    width: 240px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .table-scroll {
+    max-width: 275px;
+    overflow: auto;
+    display: flex !important;
+    border-radius: 6px;
+  }
+  .search-box {
+    width: 200px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .css-1oqqzyl-MuiContainer-root {
+    max-width: 100% !important;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #ebebeb;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  background-color: #ebebeb;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fd5b3f;
+}

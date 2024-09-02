@@ -1,0 +1,19 @@
+.small-input {
+  width: 0px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-size: 0;
+  background: none;
+}
+
+.side-by-side {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 768px) {
+  .new-min {
+    display: none;
+  }
+}
