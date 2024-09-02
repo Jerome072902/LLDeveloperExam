@@ -729,7 +729,7 @@ const MinOfMeeting = ({ darkMode }) => {
                                                 <div className="flex flex-row gap-3">
                                                   <Tooltip title="View Meeting">
                                                     <RouterLink
-                                                      to={`/View-Meeting/${meetingData.id}`}
+                                                      to={`/ViewMeet/${meetingData.id}`}
                                                       style={{
                                                         textDecoration: "none",
                                                       }}
