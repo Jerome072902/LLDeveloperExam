@@ -253,3 +253,24 @@ app.put("/minofmeet/:id", async (req, res) => {
       .json({ error: "An error occurred while updating the meeting." });
   }
 });
+
+//Delete Meeting
+app.delete("/minofmeet/:id", async (req, res) => {
+  const minOfMeetId = req.params.id;
+
+  const query = "DELETE FROM minofmeet WHERE id = @id";
+
+  try {
+    const pool = await sql.connect();
+
+    await pool.request().input("id", sql.Int, minOfMeetId).query(query);
+
+    console.log("Meeting has been deleted successfully");
+    res.json("Meeting has been deleted successfully");
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while deleting the meeting." });
+  }
+});
